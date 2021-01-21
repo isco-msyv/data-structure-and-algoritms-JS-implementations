@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    let nums = [2, 1, 4, 2, 7, 0, 3, 11, 14, 23];
+
+    function selectionSort(nums) {
+        for (let i = 0; i < nums.length - 1; i++) {
+            let minIndex = i;
+
+            for (let j = i + 1; j < nums.length; j++) {
+                if (nums[j] < nums[minIndex]) {
+                    minIndex = j;
+                }
+            }
+
+            [nums[i], nums[minIndex]] = [nums[minIndex], nums[i]]
+        }
+
+        return nums;
+    }
+
+    console.log(nums);
+    console.log(selectionSort(nums))
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    var nums = [2, 1, 4, 2, 7, 0, 3, 11, 14, 23];
+
+    function quickSort(nums) {
+        if (nums.length == 1) {
+            return nums
+        }
+
+        let pivot = nums[nums.length - 1];
+        let left = [];
+        let right = [];
+
+        for (let i = 0; i < nums.length - 1; i++) {
+            if (nums[i] > pivot) {
+                right.push(nums[i]);
+            } else {
+                left.push(nums[i]);
+            }
+        }
+
+        if (left.length > 0 && right.length > 0) {
+            return [...quickSort(left), pivot, ...quickSort(right)]
+        } else if (left.length > 0) {
+            return [...quickSort(left), pivot];
+
+        } else {
+            return [pivot, ...quickSort(right)]
+        }
+
+
+    }
+
+
+    var sorted = quickSort(nums);
+    console.log(nums);
+    console.log(sorted);
+
+
+</script>

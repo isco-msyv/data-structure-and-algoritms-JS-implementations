@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+    let nums = [2,1,4,2,7,0,3,11,14,23];
+
+    function bubleSort(array) {
+        let isSorted = false;
+
+        while (!isSorted){
+            isSorted = true;
+
+            for(i = 0; i < array.length - 1; i++){
+                if(array[i] > array[i + 1]){
+                    [array[i], array[i+1]] = [array[i+1], array[i]];
+                    isSorted = false;
+                }
+            }
+        }
+
+        return array;
+    }
+
+    console.log(nums);
+    console.log(bubleSort(nums))
+
+</script>

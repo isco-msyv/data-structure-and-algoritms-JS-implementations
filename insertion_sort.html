@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var nums = [2, 1, 4, 2, 7, 0, 3, 11, 14, 23];
+
+    function insertionSort(nums) {
+
+        for(let i = 1; i < nums.length;i++){
+            for (let j = i; j > 0 ; j--){
+                if(nums[j] < nums[j - 1]){
+                    [nums[j-1], nums[j]] = [nums[j], nums[j-1]]
+                }else{
+                    break;
+                }
+            }
+        }
+
+        return nums;
+    }
+
+    console.log(insertionSort(nums));
+</script>

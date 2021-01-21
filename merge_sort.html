@@ -1,0 +1,41 @@
+<script>
+    function mergeSort(data) {
+        let n = data.length;
+
+        if(n === 1){
+            return data;
+        }
+
+        let middle = Math.ceil(n / 2);
+
+        let left = data.slice(0, middle);
+        let right = data.slice(middle);
+
+        left = mergeSort(left);
+        right = mergeSort(right);
+
+        return merge(left, right);
+    }
+
+    function merge(left, right) {
+        let mergeResult = [];
+        // console.log(left);
+        while (left.length && right.length){
+            if(left[0] < right[0]){
+                mergeResult.push(left.shift());
+            }else {
+                mergeResult.push(right.shift());
+            }
+        }
+        // console.log(left);
+        return [...mergeResult, ...left, ...right];
+    }
+
+
+    var data = [1, 5, 4, 7, 2, 11, 25, 23, 12, 30, 21, 20, 17];
+
+
+    var sortedData = mergeSort(data);
+    console.log(sortedData);
+
+</script>

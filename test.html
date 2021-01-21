@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<script>
+
+    let price = 3.35;
+    let givenMoney = 10;
+
+    function calculateChange() {
+        let availCent = [1,5,10,20,25,50,75,100];
+        availCent = availCent.sort((a,b) => b-a);
+
+        let returnMoney = givenMoney - price;
+
+        let returnMondeyDetails = [];
+        let dollars = Math.floor(returnMoney);
+        returnMondeyDetails.push(dollars);
+        let rest = returnMoney - dollars;
+        rest = rest * 100;
+        for (m of availCent){
+            let check = Math.floor(rest / m);
+            rest = rest - (check * m);
+            returnMondeyDetails.push(check);
+        }
+        console.log(returnMondeyDetails)
+    }
+
+    calculateChange()
+
+</script>
